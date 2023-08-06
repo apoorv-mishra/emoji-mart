@@ -56,6 +56,7 @@ export default class Navigation extends PureComponent {
     return (
       <nav
         id="nav"
+        part="nav"
         class="padding"
         data-position={this.props.position}
         dir={this.props.dir}

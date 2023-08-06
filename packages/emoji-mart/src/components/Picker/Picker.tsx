@@ -692,6 +692,7 @@ export default class Picker extends Component {
     return (
       <div
         id="preview"
+        part="preview"
         class="flex flex-middle"
         dir={this.dir}
         data-position={this.props.previewPosition}
@@ -764,6 +765,7 @@ export default class Picker extends Component {
           title={this.props.previewPosition == 'none' ? emoji.name : undefined}
           type="button"
           class="flex flex-center flex-middle"
+          part="emoji-button"
           tabindex="-1"
           onClick={(e) => this.handleEmojiClick({ e, emoji })}
           onMouseEnter={() => this.handleEmojiOver(pos)}
@@ -806,7 +808,7 @@ export default class Picker extends Component {
       this.props.skinTonePosition == 'search'
 
     return (
-      <div>
+      <div part="search">
         <div class="spacer"></div>
         <div class="flex flex-middle">
           <div class="search relative flex-grow">
@@ -845,7 +847,7 @@ export default class Picker extends Component {
     if (!searchResults) return null
 
     return (
-      <div class="category" ref={this.refs.search}>
+      <div class="category" ref={this.refs.search} part="search-results">
         <div class={`sticky padding-small align-${this.dir[0]}`}>
           {I18n.categories.search}
         </div>
@@ -888,6 +890,7 @@ export default class Picker extends Component {
           display: hidden ? 'none' : undefined,
           height: '100%',
         }}
+        part="categories"
       >
         {categories.map((category) => {
           const { root, rows } = this.refs.categories.get(category.id)
@@ -978,6 +981,7 @@ export default class Picker extends Component {
           width: this.props.emojiButtonSize,
           height: this.props.emojiButtonSize,
         }}
+        part="skin-tone-button"
       >
         <button
           type="button"
@@ -1003,7 +1007,7 @@ export default class Picker extends Component {
     const contents = emoji ? emoji.name : ''
 
     return (
-      <div aria-live="polite" class="sr-only">
+      <div aria-live="polite" class="sr-only" part="live-region">
         {contents}
       </div>
     )
